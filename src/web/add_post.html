@@ -1,0 +1,55 @@
+
+
+<!doctype html>
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html >
+   <head>
+      <!-- META -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Optimize mobile viewport -->
+      <title>Add a post</title>
+      <!-- SCROLLS -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+      <!-- load bootstrap -->
+      <style>
+         html                    { overflow-y:scroll;overflow-x:hidden; }
+         .form-group label {
+         padding-bottom: 20px;
+         padding-top: 20px;
+         }
+      </style>
+      <!-- SPELLS -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+   </head>
+   <!-- SET THE CONTROLLER AND GET ALL TODOS -->
+   <body>
+      <div class="container">
+         <!-- HEADER AND TODO COUNT -->
+         <div class="jumbotron text-center">
+            <h1>Add a Post</h1>
+         </div>
+         <!-- FORM TO CREATE TODOS -->
+         <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+               <form>
+                  <div class="form-group">
+                     <label for="title" class="text-left">Title</label>
+                     <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                     <input name="title" type="text" class="form-control input-lg" placeholder="add title" >
+                     <label for="short_description" >Short Description</label>
+                     <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                     <input name="short_description" type="text" class="form-control input-lg" placeholder="add short description" >
+                     <label for="long_description" >Long Description</label>
+                     <textarea rows="10" name="long_description" type="text" class="form-control input-lg"></textarea>
+                     <label for="tags" >Tags</label>
+                     <input name="tags" type="text" class="form-control input-lg" placeholder="add tags" >
+                  </div>
+                  <button  type="submit" class="btn btn-primary btn-lg" >Add</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+

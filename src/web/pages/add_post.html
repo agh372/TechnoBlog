@@ -1,0 +1,63 @@
+
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<head>
+   <!-- META -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Optimize mobile viewport -->
+   <title>Add a post</title>
+   <!-- SCROLLS -->
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+   <!-- load bootstrap -->
+   <style>
+      html                    { overflow-y:scroll;overflow-x:hidden; }
+      .form-group label {
+      padding-bottom: 20px;
+      padding-top: 20px;
+      }
+   </style>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+</head>
+<div class="container">
+   <div class="jumbotron text-center">
+      <h1>Add a Post</h1>
+   </div>
+   <!--    Password:
+      <input type="password" ng-disabled="new_account1 == 'false'" id="login-password"
+         name="password" ng-model="password" /> -->
+   <a href="#" class="btn btn-info" role="button">Go to Home</a>
+   <!-- FORM TO CREATE TODOS -->
+   <div id="todo-form" class="row">
+      <label for="radio_new_account1">Image blog</label>
+      <input type="radio" ng-model="new_account1" name="register"
+         id="radio_new_account1" value="true" class="pull-left" />
+      <hr>
+      <label for="radio_existing_account1">Text Blog</label>
+      <input type="radio" ng-model="new_account1" name="register"
+         id="radio_existing_account1" value="false" class="pull-left" />
+      <hr>
+      <form>
+         <input type = "file" file-model = "myFile"/>
+         <button ng-click = "uploadFile()">upload me</button>
+      </form>
+   </div>
+   <div class="col-sm-8 col-sm-offset-2 text-center">
+      <form>
+         <div class="form-group">
+            <label for="title" class="text-left">Title</label>
+            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+            <input ng-model="post.title" name="title" type="text" class="form-control input-lg" placeholder="add title" >
+            <label for="short_description" >Short Description</label>
+            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+            <input ng-model="post.shortDescription" name="short_description" type="text" class="form-control input-lg" placeholder="add short description" >
+            <label for="long_description" >Long Description</label>
+            <textarea ng-model="post.longDescription" rows="10" name="long_description" type="text" class="form-control input-lg"></textarea>
+            <label for="tags" >Tags</label>
+            <input ng-model="post.tags" name="tags" type="text" class="form-control input-lg" placeholder="add tags" >
+            <button  type="submit" class="btn btn-primary btn-lg" href="#" ng-click="createPost()" >Add</button>
+      </form>
+      </div>
+   </div>
+</div>
+

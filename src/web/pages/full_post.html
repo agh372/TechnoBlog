@@ -1,0 +1,161 @@
+
+
+<style type="text/css">
+   .body{
+   background-color: #ffffff;
+   }
+   .banner{
+   background-color: #556a7f;
+   }
+   .row.content {height: 1500px}
+   /* Set gray background color and 100% height */
+   .sidenav {
+   background-color: #f1f1f1;
+   height: 100%;
+   }
+   /* Set black background color, white text and some padding */
+   footer {
+   background-color: #555;
+   color: white;
+   padding: 15px;
+   }
+   /* On small screens, set height to 'auto' for sidenav and grid */
+   @media screen and (max-width: 767px) {
+   .sidenav {
+   height: auto;
+   padding: 15px;
+   }
+   .row.content {height: auto;}
+   }
+   .add{
+   float: right;
+   margin-right: -10px;
+   }
+   .user{
+   margin-right: 10px;
+   }
+</style>
+<div class="banner">
+   <div class="container">
+      <div class="header">
+         <div class="logo">
+            <a href="index.html" class="title">Ideal Blog</a>
+         </div>
+         <div class="header-right">
+            <ul>
+               <li><a  href="#/login">Login</a></li>
+               <li><a  href="#/signup">Sign up</a></li>
+               <li><a href="#"><i class="fb"> </i></a></li>
+               <li><a href="#"><i class="twt"> </i></a></li>
+               <li>
+                  <div class="search2">
+                     <form>
+                        <input type="text" ng-model="tagString" value="Search..">
+                        <input type="submit" value="" ng-click="searchTags(tagString)">
+                     </form>
+                  </div>
+               </li>
+               <div class="clearfix"></div>
+            </ul>
+         </div>
+         <div class="clearfix"> </div>
+      </div>
+      <nav class="navbar navbar-default">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav navbar-nav navbar-left">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li>
+               </ul>
+               <a href="#/add_post" class="btn btn-primary add"  ng-disabled="users.user== 'Anonymous'">{{addButton}}</a>
+               <div class="user">
+                  You are logged in as <span style="font-weight:bold">{{users.user}}</span>
+               </div>
+            </div>
+         </div>
+   </div>
+   </nav>
+   <!-- script-for-nav -->                      
+   <div class="container body">
+      <div class="row">
+         <div >
+            <div class="l_g">
+               <div class="col-md-3 praesent">
+                  <div class="l_g_r">
+                     <div class="dapibus">
+                        <h2>{{mainPost.title}}</h2>
+                        <p class="adm">Posted by <a href="#">{{mainPost.username}}</a>  |  {{mainPost.date}}</p>
+                        <a href="details.html"></a>
+                        <p class="short">{{mainPost.shortDescription}} </p>
+                        <hr>
+                        <p class="long">{{mainPost.longDescription}} </p>
+                        <div class="tag-body">
+                           <div class="tag-body">
+                              <div ng-repeat="t in mainPost.tag">
+                                 <li>
+                                    <a class="tag2" ng-click="searchTags(t.text)">{{t.text}}</a>
+                                 </li>
+                              </div>
+                              <!--    <a ng-click="addTags($index)" href="#" class="btn btn-default btn-circle"><i class="fa fa-user"></i>+</a> -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <hr>
+      <footer>
+         <h4>Leave a Comment:</h4>
+         <form role="form">
+            <div class="form-group">
+               <textarea ng-model="comment.body" class="form-control" rows="3" required></textarea>
+            </div>
+            <button  ng-disabled="users.user== 'Anonymous'" ng-click="submitComment(comment,mainPost._id)" type="submit" class="btn btn-success">{{postButton}}</button>
+         </form>
+         <br><br>
+         <p><span class="badge">{{comments.length}}</span> Comments:</p>
+         <br>
+         <div class="row">
+            <div class="col-sm-10" ng-repeat="com in comments">
+               <h4>{{com.username}} <small>{{com.date}}</small></h4>
+               <p>{{com.body}} </p>
+               <br>
+            </div>
+            <div class="col-sm-2 text-center">
+            </div>
+         </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="footer">
+<div class="container">
+<div class="col-md-3 copy">
+<div class="top1">
+<i class="ham"></i>
+</div>
+<div class="top2">
+<h6>Copyrights © Robosoft Technologies</h6>
+<p>All rights reserved</p>
+</div>
+<div class="clearfix"> </div>
+</div>
+<div class="clearfix"> </div>
+</div>
+</div>
+</footer>
+</div>
+

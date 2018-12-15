@@ -1,0 +1,119 @@
+
+
+<style type="text/css">
+   .add{
+   float: right;
+   margin-right: 20px
+   }
+   .user{
+   margin-right: 10px;
+   }
+</style>
+<div class="banner">
+<div class="container">
+   <div class="header">
+      <div class="logo">
+         <a href="index.html" class="title">Ideal Blog</a>
+      </div>
+      <div class="header-right">
+         <ul>
+            <li><a  href="#/login">Login</a></li>
+            <li><a  href="#/signup">Sign up</a></li>
+            <li><a href="#"><i class="fb"> </i></a></li>
+            <li><a href="#"><i class="twt"> </i></a></li>
+            <li>
+               <div class="search2">
+                  <form>
+                     <input type="text" ng-model="tagString" value="Search..">
+                     <input type="submit" value="" ng-click="searchTags(tagString)">
+                  </form>
+               </div>
+            </li>
+            <div class="clearfix"></div>
+         </ul>
+      </div>
+      <div class="clearfix"> </div>
+   </div>
+   <nav class="navbar navbar-default">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+            </button>
+         </div>
+         <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-left">
+               <li><a href="#">Home</a></li>
+               <li><a href="#">About</a></li>
+               <li><a href="#">Contact</a></li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+   <!-- script-for-nav --> 					 
+</div>
+<a href="#/add_post" class="btn btn-primary add"  ng-disabled="users.user== 'Anonymous'">{{addButton}}</a>
+<div class="user">
+   You are logged in as <span style="font-weight:bold">{{users.user}}</span>
+</div>
+<!-- header -->
+<!-- content -->
+<div class="content">
+<div class="container">
+   <div class="load_more">
+      <div class="row">
+         <div class="col-md-6 block-3" id="myList" ng-repeat="post in posts">
+            <!-- These are our grid blocks -->
+            <div class="l_g">
+               <div class="col-md-3 praesent">
+                  <div class="l_g_r">
+                     <div class="dapibus">
+                        <h2>{{post.title}}</h2>
+                        <p class="adm">Posted by <a href="#">{{post.username}}</a>  |  {{post.date}}</p>
+                        <a href="details.html"></a>
+                        <p class="short">{{post.shortDescription}} </p>
+                        <a ng-click="getPost(post._id, $index)" href="#/post/{{post._id}}" class="link">Read More</a>
+                        <div class="tag-body">
+                           <div ng-repeat="t in post.tag">
+                              <li>
+                                 <a class="tag2" ng-click="searchTags(t.text,$index+1)">{{t.text}}</a>
+                              </li>
+                           </div>
+                           <!--  <a ng-click="addTags($index)" href="#" class="btn btn-default btn-circle"><i class="fa fa-user"></i>+</a> -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="clearfix"></div>
+         <!-- 	  <div id="loadMore">Back Page</div>
+            <div id="showLess">Next Page</div> -->
+         <ul class="pagination bootpag">
+            <li data-lp="1" class="prev disabled"><a href="javascript:void(0);">«</a></li>
+            <li data-lp="1"  ng-repeat="i in getNumber(number) track by $index" ><a ng-click="getPagePost($index+1)" href="javascript:void(0);">{{$index+1}}</a></li>
+            <li data-lp="1" class="next disabled"><a href="javascript:void(0);">»</a></li>
+         </ul>
+      </div>
+   </div>
+</div>
+<div class="footer">
+   <div class="container">
+      <div class="col-md-3 copy">
+         <div class="top1">
+            <i class="ham"></i>
+         </div>
+         <div class="top2">
+            <h6>Copyrights © Robosoft Technologies</h6>
+            <p>All rights reserved</p>
+         </div>
+         <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
+   </div>
+</div>
+</body>
+</html>
+
